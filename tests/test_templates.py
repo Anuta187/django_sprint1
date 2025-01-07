@@ -43,6 +43,7 @@ def test_post_detail(post_id, client, posts):
         f'под ключом `post` передаётся словарь с `"id": '
         f'{post_id}` из списка `posts`.'
     )
+    
 
 
 def test_post_list(client, posts):
