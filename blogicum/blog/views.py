@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render  # type: ignore
 from textwrap import dedent
 
 posts = [
@@ -44,9 +44,11 @@ posts = [
     },
 ]
 
+
 def index(request):
     reversed_posts = list(reversed(posts))  
     return render(request, 'blog/index.html', {'posts': reversed_posts})
+
 
 def post_detail(request, id):
     post = next((post for post in posts if post['id'] == id), None)
@@ -54,6 +56,6 @@ def post_detail(request, id):
         post['text'] = dedent(post['text'])
     return render(request, 'blog/detail.html', {'post': post})
 
+
 def category_posts(request, category_slug):
     return render(request, 'blog/category.html', {'category': category_slug})
-
